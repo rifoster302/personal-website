@@ -1,31 +1,82 @@
-body {
-    font-family: Arial, sans-serif;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* Layout */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1em 0;
+    background-color: #1f1f1f;
+    color: white;
+    padding: 1rem 2rem;
     text-align: center;
 }
 
 nav a {
-    margin: 0 15px;
-    color: #fff;
+    color: white;
+    margin: 0 10px;
     text-decoration: none;
+    font-weight: 500;
+}
+
+nav a.active {
+    border-bottom: 2px solid #fff;
 }
 
 main {
-    padding: 20px;
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Sections */
+.bio, .projects {
+    margin-bottom: 2rem;
+}
+
+.project-card {
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+a.link {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.link:hover {
+    text-decoration: underline;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #0077cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.button:hover {
+    background-color: #005fa3;
 }
 
 footer {
     text-align: center;
-    padding: 1em;
-    background-color: #ccc;
+    padding: 1rem;
+    background-color: #f1f1f1;
+    font-size: 0.9em;
 }
+
