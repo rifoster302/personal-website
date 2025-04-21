@@ -1,27 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Riley Foster</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>Riley Foster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <header>
-        <h1>Riley Foster</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="projects.html">Projects</a>
-        </nav>
-    </header>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Riley Foster</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="resume-link" href="resume/riley-foster-resume.pdf" download>Resume</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <h2>Welcome</h2>
-        <p>I'm a technology strategist currently building tools and insights in global drug development and pharmaceutical analytics. I'm currently focused on predictive modeling at Bristol Myers Sqiubb. </p>
-    </main>
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="section">
+      <p class="pre-title">Hi, my name is</p>
+      <h1 class="hero-title">Riley Foster.</h1>
+      <h2 class="hero-subtitle">I build tools & teams that solve hard problems.</h2>
+      <p class="hero-description">
+        I’m a former Army Officer & NATO strategist turned Georgetown MBA with a passion for translating complexity into clarity. I build tools that make pharmaceutical R&D faster, safer, and smarter.
+      </p>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Riley Foster</p>
-    </footer>
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+      <h2 class="section-heading">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I specialize in global drug development, predictive analytics, and digital transformation. I’ve helped organizations align regulatory, technical, and nonmarket strategies while mentoring junior talent and collaborating cross-functionally.</p>
+          <p>My background includes military leadership, an MBA from Georgetown, and a growing portfolio of Python- and Excel-based data tools.</p>
+          <p>Outside of work, I’m a dad, a decent cook, and I aspire to one day keep my houseplants alive for more than six moneths.</p>
+          <a href="resume/Riley Foster Resume 15 APR 25.pdf" download class="cta-button">Read more on my resume</a>
+        </div>
+        <div class="about-img">
+          <img src="images/Harriri Headshot.jpeg" alt="Headshot" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Riley Foster</p>
+  </footer>
 </body>
 </html>
