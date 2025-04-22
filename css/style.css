@@ -90,7 +90,7 @@
   }
   
   /* I found the background gif on GIFY, it was created by xponentialdesign */
-  
+
   .hero-bg {
     position: absolute;
     top: 0;
@@ -384,6 +384,38 @@
       padding: 1.5rem;
       text-align: left;
     }
+
+    .nav-links {
+        display: none;
+      }
+      
+      .logo {
+        font-size: 1rem;
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+      }
+      
+      header {
+        padding: 1rem;
+      }
+      
+      .featured-project {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      
+      .project-image-wrapper {
+        order: 1;
+      }
+      
+      .project-info {
+        order: 2;
+      }
+      
+      .featured-project {
+        padding: 1.5rem;
+      }      
   }
   
   @media screen and (max-width: 480px) {
@@ -402,6 +434,21 @@
     .resume-link {
       padding: 0.2rem 0.6rem;
     }
+
+    .nav-links {
+        display: none;
+      }
+      
+      .logo {
+        font-size: 1rem;
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+      }
+      
+      header {
+        padding: 1rem;
+      }      
   }
   
   
