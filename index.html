@@ -9,7 +9,7 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">Riley Foster</div>
+      <div class="logo" id="location-display">Loading weather...</div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -20,14 +20,15 @@
 
   <main>
     <section id="hero" class="section">
-    <div class="hero-bg"></div> 
-    <div class="hero-content fade-in">
-      <p class="pre-title">Hi, my name is</p>
-      <h1 class="hero-title">Riley Foster</h1>
-      <h2 class="hero-subtitle">I build tools & teams that solve hard problems.</h2>
-      <p class="hero-description">
-        I’m a former Army Officer & NATO strategist turned Georgetown MBA with a passion for translating complexity into clarity. I build tools that make pharmaceutical R&D faster, safer, and smarter.
-      </p>
+      <div class="hero-bg"></div> 
+      <div class="hero-content fade-in">
+        <p class="pre-title">Hi, my name is</p>
+        <h1 class="hero-title">Riley Foster</h1>
+        <h2 class="hero-subtitle">I build tools & teams that solve hard problems.</h2>
+        <p class="hero-description">
+          I’m a former Army Officer & NATO strategist turned Georgetown MBA with a passion for translating complexity into clarity. I build tools that make pharmaceutical R&D faster, safer, and smarter.
+        </p>
+      </div>
     </section>
 
     <section id="about" class="section about-section">
@@ -36,7 +37,7 @@
         <div class="about-text">
           <p>I specialize in global drug development, predictive analytics, and digital transformation. I’ve helped organizations align regulatory, technical, and nonmarket strategies while mentoring junior talent and collaborating cross-functionally.</p>
           <p>My background includes combat military leadership, an MBA from Georgetown, and a growing portfolio of Python and Excel-based data tools.</p>
-          <p>Outside of work, I’m a dad, a decent cook, and I aspire to one day keep my houseplants alive for more than six moneths.</p>
+          <p>Outside of work, I’m a dad, a decent cook, and I aspire to one day keep my houseplants alive for more than six months.</p>
           <a href="resume/Riley Foster Resume 15 APR 25.pdf" download class="cta-button">Read more on my resume</a>
         </div>
         <div class="about-img">
@@ -46,31 +47,71 @@
     </section>
 
     <section id="projects" class="section">
-        <h2 class="section-heading fade-in">Projects</h2>
-      
-        <div class="featured-project fade-in-delayed">
-          <div class="project-image-wrapper">
-            <img src="images/monte-carlo-sim.png" alt="Monte Carlo Simulator Preview" />
-          </div>
-          <div class="project-info">
-            <p class="project-label">Predictive Modeling</p>
-            <h3 class="project-title">Clinical Trial Timeline Simulator</h3>
-            <div class="project-description">
-              <p>
-                A Monte Carlo simulation tool built in Python and Excel to forecast global clinical trial timelines using historical distributions, probabilistic modeling, and real-world data.
-              </p>
-              <p>
-                Designed for pharmaceutical R&D teams seeking better scenario planning, risk mitigation, and trial accelerations.
-              </p>
-            </div>
+      <h2 class="section-heading fade-in">Projects</h2>
+    
+      <div class="featured-project fade-in-delayed">
+        <div class="project-image-wrapper">
+          <img src="images/monte-carlo-sim.png" alt="Monte Carlo Simulator Preview" />
+        </div>
+        <div class="project-info">
+          <p class="project-label">Predictive Modeling</p>
+          <h3 class="project-title">Clinical Trial Timeline Simulator</h3>
+          <div class="project-description">
+            <p>
+              A Monte Carlo simulation tool built in Python and Excel to forecast global clinical trial timelines using historical distributions, probabilistic modeling, and real-world data.
+            </p>
+            <p>
+              Designed for pharmaceutical R&D teams seeking better scenario planning, risk mitigation, and trial accelerations.
+            </p>
           </div>
         </div>
-      </section>
-      
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Riley Foster</p>
   </footer>
+  
+  <script>
+    let staticCityRegion = '';
+    let staticTemperature = '';
+  
+    async function fetchWeatherData() {
+      try {
+        const locationRes = await fetch('https://ipapi.co/json');
+        const locationData = await locationRes.json();
+        const city = locationData.city;
+        const region = locationData.region;
+        const lat = locationData.latitude;
+        const lon = locationData.longitude;
+  
+        const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=fahrenheit`);
+        const weatherData = await weatherRes.json();
+        const temperature = Math.round(weatherData.current_weather.temperature);
+  
+        staticCityRegion = `${city}, ${region}`;
+        staticTemperature = `${temperature}°F`;
+  
+        updateTimeDisplay(); // Call immediately after loading
+        setInterval(updateTimeDisplay, 60000); // Update every 60 seconds
+  
+      } catch (error) {
+        console.error("Weather display error:", error);
+        document.getElementById('location-display').textContent = "Live info unavailable";
+      }
+    }
+  
+    function updateTimeDisplay() {
+      const timeNow = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      if (staticCityRegion && staticTemperature) {
+        document.getElementById('location-display').textContent =
+          `${staticCityRegion} | ${timeNow} | ${staticTemperature}`;
+      }
+    }
+  
+    fetchWeatherData();
+  </script>
+  
 </body>
 </html>

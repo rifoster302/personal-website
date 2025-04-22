@@ -1,7 +1,7 @@
 :root {
     --bg: #1a0025;
     --text: #ffffff;
-    --accent: #00f2fff8;
+    --accent: #f0d9bd;
     --nav-bg: #290b3a;
     --card-bg: #2c003e;
     --hover: #cfcfcf;
@@ -54,6 +54,17 @@
     border: 1px solid var(--accent);
     padding: 0.3rem 0.8rem;
     border-radius: 4px;
+  }
+  
+  .logo {
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    flex-shrink: 1;
   }
   
   #hero {
@@ -297,4 +308,5 @@
       padding: 0.2rem 0.6rem;
     }
   }
+  
   
