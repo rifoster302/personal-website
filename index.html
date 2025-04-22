@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+<!-- I wrote this HTML file with help from ChatGPT. I have sections annotated where I used AI to help me create this website. I also used Brittany Chiang's personal website as a a template, https://v4.brittanychiang.com/ -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
+<!-- I used ChatGPT to help me finalize elements of this game after I had created the basic strcuture. -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
       const dot = document.getElementById("dot");
@@ -167,10 +170,11 @@
     <p>&copy; 2025 Riley Foster</p>
   </footer>
 
+<!-- I developed this weather/location/time display with help from ChatGPT. I used AI to find ipapai.co and the open-meteo APIs, and asked it to help me understand how to layer the code to display the data I wanted. -->
+
   <script>
     let staticCityRegion = '';
     let staticTemperature = '';
-  
     async function fetchWeatherData() {
       try {
         const locationRes = await fetch('https://ipapi.co/json');
@@ -189,7 +193,6 @@
   
         updateTimeDisplay(); 
         setInterval(updateTimeDisplay, 60000); 
-  
       } catch (error) {
         console.error("Weather display error:", error);
         document.getElementById('location-display').textContent = "Live info unavailable";
@@ -206,6 +209,5 @@
   
     fetchWeatherData();
   </script>
-  
 </body>
 </html>

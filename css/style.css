@@ -6,7 +6,7 @@
     --card-bg: #2c003e;
     --hover: #cfcfcf;
   }
-  
+  /* I did a lot of trial and error with margins and positioning, but I also used AI to help me narrow down my choices after a while */
   * {
     margin: 0;
     padding: 0;
@@ -88,6 +88,8 @@
     justify-content: flex-start;
     z-index: 0;
   }
+  
+  /* I found the background gif on GIFY, it was created by xponentialdesign */
   
   .hero-bg {
     position: absolute;
@@ -355,6 +357,7 @@
     color: var(--bg);
   }
   
+  /* I asked ChatGPT to help me understand the parameters for mobile and tablet displays */
   @keyframes fadeIn {
     to {
       opacity: 1;
