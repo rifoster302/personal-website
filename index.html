@@ -12,8 +12,11 @@
       const dot = document.getElementById("dot");
       const status = document.getElementById("game-status");
       const gameContainer = document.getElementById("game-container");
+      const scoreCount = document.getElementById("score-count");
+      const resetButton = document.getElementById("reset-button");
   
       let timeout;
+      let score = 0;
   
       function moveDot() {
         const containerRect = gameContainer.getBoundingClientRect();
@@ -34,6 +37,8 @@
       }
   
       dot.addEventListener("click", () => {
+        score += 1;
+        scoreCount.textContent = score;
         status.textContent = "Nice! You got it.";
         setTimeout(() => {
           status.textContent = "";
@@ -41,10 +46,16 @@
         moveDot();
       });
   
+      resetButton.addEventListener("click", () => {
+        score = 0;
+        scoreCount.textContent = score;
+        status.textContent = "Game reset. Go again!";
+        moveDot();
+      });
+  
       moveDot();
     });
   </script>
-  
   
 <body>
   <header>
@@ -138,13 +149,17 @@
       </section>
       
       <section id="game" class="section fade-in">
-        <h2 class="section-heading"></h2>
-        <p class="contact-text">Click the dot before it disappears! Just a little something for lingering minds.</p>
+        <h2 class="section-heading">A Quick Game?</h2>
+        <p class="contact-text">Click the dot before it disappears! Like this website? Send me your high score and ask me about it!</p>
         <div id="game-container">
           <div id="dot"></div>
         </div>
+        <div class="game-stats">
+          <p><strong>Score:</strong> <span id="score-count">0</span></p>
+          <button id="reset-button">Reset</button>
+        </div>
         <p id="game-status"></p>
-      </section>
+      </section>      
       
   </main>
 
