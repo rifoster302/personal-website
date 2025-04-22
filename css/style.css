@@ -262,7 +262,68 @@
     animation: fadeIn 1s ease forwards;
     animation-delay: 0.3s;
   }
+  .contact-text {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--hover);
+    margin: 1.5rem auto 2rem;
+    max-width: 600px;
+  }
   
+  .contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .contact-button {
+    background-color: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-button:hover {
+    background-color: var(--accent);
+    color: var(--bg);
+  }  
+  
+  #game-container {
+    position: relative;
+    height: 300px;
+    margin: 2rem auto;
+    background-color: #2b1c3a;
+    border-radius: 10px;
+    max-width: 600px;
+    overflow: hidden;
+  }
+  
+  #dot {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  #game-status {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+    #game-score {
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--accent);
+    }
   @keyframes fadeIn {
     to {
       opacity: 1;
